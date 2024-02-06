@@ -1,0 +1,18 @@
+.footer {
+    border-top: 1px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 16px;
+    background-color: var(--gray-light);
+}
+
+.footer span {
+    color: var(--gray-dark);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.footer__logo {
+    margin-right: 4px;
+}

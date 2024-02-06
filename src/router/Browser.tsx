@@ -16,6 +16,6 @@ const Browser = () => {
             </Routes>
         </BrowserRouter>
     );
-};
+};  
 
 export default Browser;

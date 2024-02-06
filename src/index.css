@@ -11,11 +11,18 @@
 	--red: #d35151;
 }
 
+#root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 * {
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, p, a, span {
     font-family: 'Open Sans', sans-serif;
 }
 
