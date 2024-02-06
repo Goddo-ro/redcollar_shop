@@ -5,14 +5,15 @@ import {
     Navigate
   } from 'react-router-dom';
 import PageNotFound from '../components/PageNotFound/PageNotFound';
+import Products from '../pages/Products/Products';
 
 const Browser = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Navigate to="/products" />} />
-                <Route path="/products" element={<h1>Products</h1>}/>
-                <Route path="*" element={<PageNotFound />} />
+                <Route path='/' element={<Navigate to='/products' />} />
+                <Route path='/products' element={<Products/>}/>
+                <Route path='*' element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>
     );
