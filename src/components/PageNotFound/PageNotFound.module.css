@@ -1,0 +1,19 @@
+.content-container {   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: auto;
+    height: 80vh;
+    width: 60%;
+    gap: 64px;
+}
+
+.content-container__header {
+    font-size: 5rem;
+    line-height: 90%;
+    padding-bottom: 20px;
+    background: rgb(211,81,81);
+    background: linear-gradient(157deg, rgba(211,81,81,1) 7%, rgba(54,37,255,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

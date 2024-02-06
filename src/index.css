@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('./assets/styles/reset.css');
+
+:root {
+    --white: #fff;
+	--gray-light: #efeef4;
+	--gray-main: #5c6970;
+	--gray-dark: #2e3438;
+	--blue-light: #3625ff;
+	--blue-dark: #0c0099;
+	--red: #d35151;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
