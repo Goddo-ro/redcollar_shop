@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useUnit } from 'effector-react';
 import { $activeCategory, updateCategory } from '../../store/products';
@@ -10,6 +10,8 @@ const Category = ({ category }: { category: string }) => {
     const [mouseDown, setMouseDown] = useState<number>(0);
     const [mouseUp, setMouseUp] = useState<number>(0);
 
+    const navigate = useNavigate();
+
     const [updateCategoryEvent] = useUnit([updateCategory]);
     const activeCategory = useUnit($activeCategory);
 
@@ -19,6 +21,7 @@ const Category = ({ category }: { category: string }) => {
             return;
         }
 
+        navigate('/products/' + (category === 'all' ? '' : `?category=${category}`));
         updateCategoryEvent(category);
     };
 
@@ -31,16 +34,13 @@ const Category = ({ category }: { category: string }) => {
     };
 
     return (
-        <Button buttonType={ButtonType.clear} className={activeCategory === category ? 'button_active' : ''}>
+        <Button buttonType={ButtonType.clear} className={activeCategory === category ? 'button_active' : ''}
+            onClick={handleClick}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+        >
             {activeCategory === category && <img src={PointIcon} alt="point"/>}
-            <Link 
-                to={'/products/' + (category === 'all' ? '' : `?category=${category}`)}
-                onClick={handleClick}
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
-            >
-                {category}
-            </Link>
+            {category}
         </Button>
     );
 };

@@ -2,7 +2,7 @@ import { createEffect, createEvent, createStore, sample } from 'effector';
 import { Product } from '../types/Product';
 import { getAllProducts, getProductsByCategory } from '../api/ProductsApi';
 
-export const $activeCategory = createStore<string | null>(null);
+export const $activeCategory = createStore<string | null>('all');
 $activeCategory.watch((value) => {
     console.log('updated', value);
   });
