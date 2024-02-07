@@ -14,6 +14,10 @@
     transition: background-color .2s linear;
 }
 
+.button * {
+    color: var(--white);
+}
+
 .button:hover,
 .button:focus {
     border: none;
@@ -25,6 +29,10 @@
     background-color: var(--white);
 }
 
+.button_clear * {
+    color: var(--gray-main);
+}
+
 .button_clear:hover,
 .button_clear:focus {
     color: var(--white);
@@ -33,4 +41,9 @@
 .button_clear:hover img,
 .button_clear:focus img {
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(62deg) brightness(108%) contrast(101%);
+}
+
+.button_clear:hover *,
+.button_clear:focus * {
+    color: var(--white);
 }

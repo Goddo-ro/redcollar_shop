@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 16px;
+    padding: 20px 16px;
     background-color: var(--gray-light);
 }
 

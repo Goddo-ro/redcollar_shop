@@ -1,0 +1,17 @@
+.categories {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-radius: 4px;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.categories > li {
+    flex-shrink: 0;
+}
