@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
-import { ButtonType } from '../Button/ButtonType';
 import { getProductsCategories } from '../../api/ProductsApi';
 import styles from './Categories.module.css';
 import DraggableList from '../DraggableList/DraggableList';
+import Category from '../Category/Category';
 
 const Categories = () => {
     const [categories, setCategories] = useState<string[]>([]);
@@ -19,13 +17,7 @@ const Categories = () => {
         <DraggableList
             children={categories}
             listClass={styles.categories}
-            childRenderer={(category) => {
-                return (
-                    <Button type={ButtonType.clear}>
-                         <Link to={`/products/category/${category}`}>{category}</Link>
-                    </Button>
-                );
-            }}
+            childRenderer={category => typeof category === 'string' && <Category category={category}/>}
         />
     );
 };

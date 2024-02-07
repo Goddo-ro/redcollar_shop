@@ -2,18 +2,16 @@ import React, { CSSProperties } from 'react';
 import { ButtonType } from './ButtonType';
 import './styles.css';
 
-type ButtonProps = {
+interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
     children: React.ReactNode | string
     className?: string
     styles?: CSSProperties | undefined
-    type?: ButtonType
-};
+    buttonType?: ButtonType
+}
 
-const Button = ({ children, className = '', styles, type = ButtonType[''] }: ButtonProps) => {
-
-
+const Button = ({ styles, buttonType, className, children, ...rest }: ButtonProps) => {
     return (
-        <button style={styles} className={['button', type, className].join(' ')}>
+        <button style={styles} className={['button', buttonType, className].join(' ')} {...rest}>
             { children }
         </button>
     );
