@@ -14,4 +14,10 @@
 
 .categories > li {
     flex-shrink: 0;
+    height: 100%;
+}
+
+.categories > li > * {
+    height: 100%;
+    padding-inline: 8px;
 }

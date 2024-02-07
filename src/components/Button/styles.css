@@ -38,12 +38,25 @@
     color: var(--white);
 }
 
-.button_clear:hover img,
-.button_clear:focus img {
+.button_clear:hover:not(.button_active) img,
+.button_clear:focus:not(.button_active) img {
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(62deg) brightness(108%) contrast(101%);
 }
 
 .button_clear:hover *,
 .button_clear:focus * {
     color: var(--white);
+}
+
+.button_active {
+    background-color: var(--blue-light);
+}
+
+.button_active > * {
+    color: var(--white);
+}
+
+.button_active:hover,
+.button_active:focus {
+    background-color: var(--blue-light);
 }
