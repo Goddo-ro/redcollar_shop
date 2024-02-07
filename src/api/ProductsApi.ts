@@ -10,12 +10,12 @@ export const getAllProducts = async (limit: number = 10, skip: number = 0) => {
 };
 
 export const getProductsBySearch = async (search: string) => {
-    return await $productsInstance.get(`products/search`, {
+    return await $productsInstance.get('products/search', {
         params: {
             q: search
         }
     });
-}
+};
 
 export const getProductsByCategory = async (category: string) => {
     return await $productsInstance.get(`products/category/${category}`);

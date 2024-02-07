@@ -1,4 +1,4 @@
-import Snowfall from 'src/assets/icons/snowflake.svg';
+import Snowfall from 'src/assets/icons/loadstar.svg';
 import Redcollar from 'src/assets/icons/redcollar.svg';
 import styles from './Footer.module.css';
 

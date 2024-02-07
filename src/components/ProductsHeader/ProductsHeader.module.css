@@ -1,0 +1,16 @@
+.header {
+    background-color: var(--gray-light);
+    padding: 30px 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.header > .cart-btn {
+    color: var(--blue-light);
+}
+
+.header > .cart-btn:hover,
+.header >.cart-btn:focus {
+    color: var(--white);
+}

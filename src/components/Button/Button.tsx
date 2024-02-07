@@ -1,13 +1,19 @@
-import React from 'react';
-import styles from'./Button.module.css';
+import React, { CSSProperties } from 'react';
+import { ButtonType } from './ButtonType';
+import './styles.css';
 
 type ButtonProps = {
-    'children': React.ReactNode | string
+    children: React.ReactNode | string
+    className?: string
+    styles?: CSSProperties | undefined
+    type?: ButtonType
 };
 
-const Button = ({ children }: ButtonProps) => {
+const Button = ({ children, className = '', styles, type = ButtonType[''] }: ButtonProps) => {
+
+
     return (
-        <button className={styles.button}>
+        <button style={styles} className={['button', type, className].join(' ')}>
             { children }
         </button>
     );
