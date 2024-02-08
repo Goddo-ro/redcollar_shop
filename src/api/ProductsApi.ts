@@ -18,16 +18,23 @@ export const getAllProducts = async (limit: number = 10, skip: number = 0): Axio
     });
 };
 
-export const getProductsBySearch = async (search: string) => {
+export const getProductsBySearch = async (search: string, limit: number = 10, skip: number = 0) => {
     return await $productsInstance.get<ProductsResponse>('products/search', {
         params: {
-            q: search
+            q: search,
+            limit,
+            skip
         }
     });
 };
 
-export const getProductsByCategory = async (category: string) => {
-    return await $productsInstance.get<ProductsResponse>(`products/category/${category}`);
+export const getProductsByCategory = async (category: string, limit: number = 10, skip: number = 0) => {
+    return await $productsInstance.get<ProductsResponse>(`products/category/${category}`, {
+        params: {
+            limit,
+            skip
+        }
+    });
 };
 
 export const getProductsCategories = async () => {

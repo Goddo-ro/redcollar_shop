@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useUnit } from 'effector-react';
-import { $activeCategory, updateCategory } from '../../store/products';
-import Button from '../Button/Button';
+import { $activeCategory } from '../../store/products';
 import { ButtonType } from '../Button/ButtonType';
+import Button from '../Button/Button';
 import PointIcon from 'src/assets/icons/point.svg';
 
 const Category = ({ category }: { category: string }) => {
@@ -12,7 +12,6 @@ const Category = ({ category }: { category: string }) => {
 
     const navigate = useNavigate();
 
-    const [updateCategoryEvent] = useUnit([updateCategory]);
     const activeCategory = useUnit($activeCategory);
 
     const handleClick = (event: React.MouseEvent) => {
@@ -22,7 +21,6 @@ const Category = ({ category }: { category: string }) => {
         }
 
         navigate('/products/' + (category === 'all' ? '' : `?category=${category}`));
-        updateCategoryEvent(category);
     };
 
     const handleMouseDown = (event: React.MouseEvent) => {
