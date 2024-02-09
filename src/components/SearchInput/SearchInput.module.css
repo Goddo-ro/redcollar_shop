@@ -1,0 +1,27 @@
+.search-container {
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    padding-right: 8px;
+    gap: 8px;
+}
+
+.search-container__input {
+    flex: 1;
+    border: none;
+    color: var(--gray-main);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.search-container__input:focus {
+    outline: none;
+}
+
+.search-container__reset {
+    cursor: pointer;
+}

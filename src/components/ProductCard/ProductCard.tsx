@@ -14,6 +14,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const [showDescription, setShowDescription] = useState(false);
 
     // TODO: make hide btn styles
+    // TODO: replace price by Button component
     return (
         <div className={`${styles['product-card']}`}>
             {
