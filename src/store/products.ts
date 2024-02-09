@@ -8,8 +8,11 @@ enum FetchType {
     search,
 }
 
+// TODO: fetch data on first load
+
 export const $typeOfFetching = createStore<FetchType>(FetchType.all);
 export const $activeCategory = createStore<string>('all');
+
 export const $products = createStore<Product[]>([]);
 export const $limit = createStore<number>(10);
 export const $skip = createStore<number>(0);

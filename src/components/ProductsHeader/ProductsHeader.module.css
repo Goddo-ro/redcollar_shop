@@ -15,3 +15,7 @@
 .header >.cart-btn:focus {
     color: var(--white);
 }
+
+.header * {
+    font-weight: 600;
+}

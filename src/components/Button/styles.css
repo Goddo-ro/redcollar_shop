@@ -3,7 +3,6 @@
     align-items: center;
     gap: 6px;
     width: fit-content;
-    height: fit-content;
     color: var(--white);
     background-color: var(--blue-light);
     border-radius: 4px;

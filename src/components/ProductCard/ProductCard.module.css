@@ -1,0 +1,102 @@
+.product-card {
+    background-color: var(--gray-light);
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.14286;
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 500px;
+}
+
+.product-card__discount {
+    background-color: var(--white);
+    color: var(--gary-dark);
+    width: fit-content;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.product-card__discount > span {
+    color: var(--blue-light);
+}
+
+.product-card__img {
+    height: 288px;
+}
+
+.product-card__dot {
+    background-color: var(--white);
+    opacity: 0;
+    transition: opacity .25s ease-in;
+    width: 8px;
+    height: 8px;
+    margin-inline: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.product-card:hover .product-card__dot,
+.product-card:focus .product-card__dot {
+    opacity: 1;
+}
+
+.product-card__dot_selected {
+    background-color: var(--gray-main);
+}
+
+.product-card__rating {
+    background-color: var(--white);
+    border-radius: 4px;
+    width: fit-content;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.product-card__title {
+    color: var(--gray-dark);
+}
+
+.product-card__description {
+    font-size: 12px;
+}
+
+.product-card__description p {
+    display: inline-block;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap;
+}
+
+.product-card__description span {
+    color: var(--blue-light);
+    cursor: pointer;
+}
+
+.product-card__price-container,
+.product-card__price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-card__price {
+    background-color: var(--blue-light);
+    color: var(--white);
+    padding: 4px;
+    padding-right: 8px;
+    border-radius: 4px;
+    gap: 4px;
+}
+
+.product-card__prev-price {
+    color: var(--gray-main);
+    text-decoration-line: line-through;
+}
