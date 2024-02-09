@@ -8,8 +8,6 @@ enum FetchType {
     search,
 }
 
-// TODO: fetch data on first load
-
 export const $typeOfFetching = createStore<FetchType>(FetchType.all);
 export const $activeCategory = createStore<string>('all');
 
@@ -44,17 +42,19 @@ sample({
     target: $typeOfFetching,
 });
 
-sample({
-    clock: [$typeOfFetching, $activeCategory],
-    target: updateProducts,
-});
+// sample({
+//     clock: [$typeOfFetching, $activeCategory],
+//     target: updateProducts,
+// });
 
-sample({
-    clock: updateProducts.doneData,
-    fn: (res) => [...$products.getState(), ...res.data.products],
-    target: $products,
-});
+// sample({
+//     clock: updateProducts.doneData,
+//     fn: (res) => [...$products.getState(), ...res.data.products],
+//     target: $products,
+// });
 
-$products.reset($activeCategory, $typeOfFetching);
-$limit.reset($activeCategory, $typeOfFetching);
-$skip.reset($activeCategory, $typeOfFetching);
+// $products.reset($activeCategory, $typeOfFetching);
+// $limit.reset($activeCategory, $typeOfFetching);
+// $skip.reset($activeCategory, $typeOfFetching);
+
+// updateProducts();

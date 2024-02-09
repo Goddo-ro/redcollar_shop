@@ -1,0 +1,7 @@
+.products-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray-light);
+    padding: 40px;
+}

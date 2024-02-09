@@ -10,7 +10,7 @@ const ProductsGrid = () => {
     return (
         <div className={styles['products-grid']}>
             {
-                products.length > 0 ? productsEls : <span>No products found</span>
+                productsEls
             }
         </div>
     );

@@ -15,7 +15,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
     // TODO: make hide btn styles
     return (
-        <div className={styles['product-card']}>
+        <div className={`${styles['product-card']}`}>
             {
                 !showDescription &&
                 <ProductCardHeader discountPercentage={product.discountPercentage} images={product.images} /> 

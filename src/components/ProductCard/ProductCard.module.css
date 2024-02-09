@@ -64,14 +64,14 @@
 
 .product-card__description {
     font-size: 12px;
+    height: 100%;
 }
 
 .product-card__description p {
-    display: inline-block;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+    -webkit-line-clamp: 2;
     white-space: pre-wrap;
 }
 

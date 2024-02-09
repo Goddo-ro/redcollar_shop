@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useUnit } from 'effector-react';
 import ProductsHeader from '../../components/ProductsHeader/ProductsHeader';
 import ProductsGrid from '../../components/ProductsGrid/ProductsGrid';
+import ProductsStatus from '../../components/ProductsStatus/ProductsStatus';
 import { $activeCategory, updateCategory } from '../../store/products';
 
 const Products = () => {
@@ -21,6 +22,7 @@ const Products = () => {
         <main className='products'>
             <ProductsHeader/>
             <ProductsGrid/>
+            <ProductsStatus/>
         </main>
     );
 };
