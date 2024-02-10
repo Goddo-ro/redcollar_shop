@@ -18,8 +18,8 @@ export const $skip = createStore<number>(0);
 export const updateTypeOfFetching = createEvent<FetchType>();
 export const updateSearchValue = createEvent<string>('');
 export const updateCategory = createEvent<string | null>();
+export const updateSkip = createEvent<number>();
 
-// TODO: update skip
 export const updateProducts = createEffect(async () => {
     switch ($typeOfFetching.getState()) {
         case FetchType.category:
@@ -66,6 +66,17 @@ sample({
     clock: updateProducts.doneData,
     fn: (res) => [...$products.getState(), ...res.data.products],
     target: $products,
+});
+
+sample({
+    clock: updateSkip,
+    target: $skip,
+});
+
+sample({
+    clock: updateProducts.done,
+    fn: () => $skip.getState() + $limit.getState(),
+    target: $skip,
 });
 
 $products.reset($activeCategory, $searchValue, $typeOfFetching);
