@@ -1,0 +1,120 @@
+.cart__list {
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    align-items: start;
+    gap: 30px;
+    flex: 1;
+    margin-left: 24px;
+}
+
+.cart__item, 
+.cart__item-header {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.cart__item-description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px;
+    padding-right: 20px;
+}
+
+.cart__item {
+    gap: 16px;
+    position: relative;
+}
+
+.cart__item-img {
+    width: 60px;
+    height: 60px;
+}
+
+.cart__item-header {
+    justify-content: space-between;
+}
+
+.cart__item-header > * {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14286;
+    color: var(--gray-main);
+}
+
+.cart__item-count {
+    background-color: var(--gray-light);
+    width: fit-content;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cart__item-count > span {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--gray-dark);
+}
+
+.cart__item-count > span:first-child,
+.cart__item-count > span:last-child {
+    cursor: pointer;
+}
+
+.cart__item-remove {
+    background-color: var(--red);
+    position: absolute;
+    margin-left: calc(100% - 16px);
+    /* right: calc(-100% + 16px); */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    overflow: hidden;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+}
+
+.cart__item-remove:not(.cart__item-remove_clicked) {
+    display: none;
+}
+
+.cart__item-remove:hover,
+.cart__item-remove:focus {
+    margin-left: calc(100% - 100px);
+    /* right: calc(-100% + 100px); */
+}
+
+.cart__item:hover .cart__item-remove,
+.cart__item:focus .cart__item-remove {
+    display: flex;
+}
+
+.cart__item-remove_clicked {
+    animation: showup 1s forwards;
+}
+
+.cart__item-remove > span {
+    color: var(--white);
+    font-size: 14px;
+    line-height: 1.14286;
+}
+
+@keyframes showup {
+    from {
+        margin-left: calc(100% - 100px);
+        /* right: calc(-100% + 100px); */
+    }
+
+    to {
+        margin-left: 0;
+    }
+}

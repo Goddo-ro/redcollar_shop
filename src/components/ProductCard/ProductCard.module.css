@@ -91,6 +91,10 @@
     gap: 4px;
 }
 
+.product-card__price_added {
+    color: var(--blue-light);
+}
+
 .product-card__prev-price {
     color: var(--gray-main);
     text-decoration-line: line-through;

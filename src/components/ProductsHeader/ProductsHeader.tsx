@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useUnit } from 'effector-react';
 import { $activeCategory, FetchType, updateTypeOfFetching } from '../../store/products';
+import { openCart } from '../../store/cart';
 import Button from '../Button/Button';
 import { ButtonType } from '../Button/ButtonType';
 import Categories from '../Categories/Categories';
@@ -14,6 +15,7 @@ const ProductsHeader = () => {
     
     const activeCategory = useUnit($activeCategory);
     const updateTypeOfFetchingEvent = useUnit(updateTypeOfFetching);
+    const openCartEvent = useUnit(openCart);
 
     useEffect(() => {
         if (isCategoriesOpen) {
@@ -41,7 +43,11 @@ const ProductsHeader = () => {
                 </>
                 : <SearchController setIsOpen={(isOpen: boolean) => setIsCategoriesOpen(!isOpen)}/>
             }
-            <Button buttonType={ButtonType.clear} className={styles['cart-btn']}>
+            <Button
+                buttonType={ButtonType.clear} 
+                className={styles['cart-btn']}
+                onClick={() => openCartEvent()}
+            >
                 <img src={CartIcon} alt="search"/>
                 <span>cart</span>
             </Button>

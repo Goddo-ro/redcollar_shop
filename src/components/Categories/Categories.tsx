@@ -1,7 +1,7 @@
 import { useUnit } from 'effector-react';
 import { $categories } from '../../store/categories';
 import DraggableList from '../DraggableList/DraggableList';
-import Category from '../Category/Category';
+import Category from './Category';
 import styles from './Categories.module.css';
 
 const Categories = () => {

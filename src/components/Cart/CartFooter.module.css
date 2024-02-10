@@ -1,0 +1,31 @@
+.cart__footer {
+    padding: 24px;
+    padding-top: 0;
+}
+
+.cart__result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.cart__positions {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.cart__price {
+    font-size: 24px;
+    line-height: 1.16667;
+}
+
+.cart__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.33333;
+    padding: 8px 16px;
+}

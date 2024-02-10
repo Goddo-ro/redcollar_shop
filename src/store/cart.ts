@@ -5,11 +5,21 @@ type CartListType = {
     [key: number]: { product: Product, count: number }
 };
 
+// TODO: share data between browser pages
+export const $isCartOpen = createStore<boolean>(false);
 export const $cartList = createStore<CartListType>({});
+export const $resultPrice = createStore<number>(0);
+export const $resultCount = createStore<number>(0);
 
-const increaseCount = createEvent<Product>();
-const decreaseCount = createEvent<Product>();
-const removeFromCart = createEvent<Product>();
+export const openCart = createEvent();
+export const closeCart = createEvent();
+export const increaseCount = createEvent<Product>();
+export const decreaseCount = createEvent<Product>();
+export const removeFromCart = createEvent<Product>();
+export const resetCart = createEvent();
+
+$isCartOpen.on(openCart, () => true);
+$isCartOpen.on(closeCart, () => false);
 
 sample({
     clock: increaseCount,
@@ -24,6 +34,31 @@ sample({
         return cartList;
     },
     target: $cartList,
+});
+
+sample({
+    clock: increaseCount,
+    fn: (product: Product) => $resultPrice.getState() + product.price,
+    target: $resultPrice,
+});
+
+sample({
+    clock: increaseCount,
+    fn: () => $resultCount.getState() + 1,
+    target: $resultCount,
+});
+
+sample({
+    clock: removeFromCart,
+    fn: (product: Product) => $resultPrice.getState() - product.price 
+                                * $cartList.getState()[product.id].count,
+    target: $resultPrice,
+});
+
+sample({
+    clock: removeFromCart,
+    fn: (product: Product) => $resultCount.getState() - $cartList.getState()[product.id].count,
+    target: $resultCount,
 });
 
 sample({
@@ -56,3 +91,24 @@ sample({
     },
     target: $cartList,
 });
+
+sample({
+    clock: decreaseCount,
+    fn: (product: Product) => $resultPrice.getState() - product.price,
+    target: $resultPrice,
+});
+
+sample({
+    clock: decreaseCount,
+    fn: () => $resultCount.getState() - 1,
+    target: $resultCount,
+});
+
+sample({
+    clock: resetCart,
+    fn: () => ({}),
+    target: $cartList,
+});
+
+$resultPrice.reset(resetCart);
+$resultCount.reset(resetCart);

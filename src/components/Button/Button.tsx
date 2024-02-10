@@ -10,6 +10,7 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 }
 
 const Button = ({ styles, buttonType, className, children, ...rest }: ButtonProps) => {
+    // TODO: unhover style
     return (
         <button style={styles} className={['button', buttonType, className].join(' ')} {...rest}>
             { children }
