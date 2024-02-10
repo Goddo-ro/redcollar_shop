@@ -80,19 +80,14 @@
     cursor: pointer;
 }
 
-.product-card__price-container,
-.product-card__price {
+.product-card__price-container {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 .product-card__price {
-    background-color: var(--blue-light);
-    color: var(--white);
-    padding: 4px;
     padding-right: 8px;
-    border-radius: 4px;
     gap: 4px;
 }
 

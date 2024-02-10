@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { Product } from '../../types/Product';
+import Button from '../Button/Button';
 import StarIcon from 'src/assets/icons/star.svg';
 import CartIcon from 'src/assets/icons/cart_white.svg';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -14,7 +15,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const [showDescription, setShowDescription] = useState(false);
 
     // TODO: make hide btn styles
-    // TODO: replace price by Button component
     return (
         <div className={`${styles['product-card']}`}>
             {
@@ -34,10 +34,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 }
             </div>
             <div className={styles['product-card__price-container']}>
-                <div className={styles['product-card__price']}>
+                <Button 
+                    className={styles['product-card__price']}
+                >
                     <img src={CartIcon} alt='cart'/>
                     ${product.price}
-                </div>
+                </Button>
                 <span className={styles['product-card__prev-price']}>
                     ${Math.floor(product.price * (1 + product.discountPercentage / 100))}
                 </span>
