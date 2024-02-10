@@ -1,6 +1,7 @@
 import { createEffect, createEvent, createStore, sample } from 'effector';
 import { Product } from '../types/Product';
 import { getAllProducts, getProductsByCategory, getProductsBySearch } from '../api/ProductsApi';
+import { setError } from './error';
 
 export enum FetchType {
     all,
@@ -77,6 +78,12 @@ sample({
     clock: updateProducts.done,
     fn: () => $skip.getState() + $limit.getState(),
     target: $skip,
+});
+
+sample({
+    clock: updateProducts.fail,
+    fn: () => 'При загрузке товаров произошла ошибка, повторите запрос.',
+    target: setError,
 });
 
 $products.reset($activeCategory, $searchValue, $typeOfFetching);

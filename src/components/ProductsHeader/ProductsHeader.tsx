@@ -15,6 +15,7 @@ const ProductsHeader = () => {
     const activeCategory = useUnit($activeCategory);
     const updateTypeOfFetchingEvent = useUnit(updateTypeOfFetching);
 
+    // TODO: move categories to store
     useEffect(() => {
         if (isCategoriesOpen) {
             activeCategory === 'all' 
