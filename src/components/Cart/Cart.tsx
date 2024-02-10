@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { KeyboardEvent, useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { useUnit } from 'effector-react';
 import { $isCartOpen, closeCart } from '../../store/cart';
@@ -17,7 +17,6 @@ const Cart = () => {
         else document.body.style.overflow = 'scroll';
     }, [isCartOpen]);
 
-    // TODO: add tab support
     return (
         <ReactModal
             isOpen={isCartOpen}
@@ -39,6 +38,13 @@ const Cart = () => {
 const CartHeader = () => {
     const closeCartEvent = useUnit(closeCart);
 
+    const handleKeydown = (event: KeyboardEvent<HTMLImageElement>) => {
+        event.preventDefault();
+        if (event.key === 'Enter') {
+            closeCartEvent();
+        }
+    };
+
     return (
         <div className={styles['cart__header']}>
             <span>
@@ -50,6 +56,8 @@ const CartHeader = () => {
                 src={CrossIcon} 
                 alt='close' 
                 onClick={() => closeCartEvent()}
+                onKeyDown={handleKeydown}
+                tabIndex={0}
             />
         </div>
     );

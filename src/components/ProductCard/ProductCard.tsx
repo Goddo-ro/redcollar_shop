@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { useUnit } from 'effector-react';
 import { $cartList, $resultCount, increaseCount } from '../../store/cart';
@@ -29,6 +29,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
         }
     }, [resultCount]);
 
+    const handleReadKeydown = (event: KeyboardEvent, state: boolean) => {
+        if (event.key === 'Enter') {
+            setShowDescription(state);
+        }
+    };
+
     // TODO: make hide btn styles
     return (
         <div className={`${styles['product-card']}`}>
@@ -44,8 +50,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <div className={styles['product-card__description']}>
                 <p>{product.description}</p>
                 {
-                    showDescription ? <span onClick={() => setShowDescription(false)}>Hide description</span>
-                    : <span onClick={() => setShowDescription(true)}>Read more</span>
+                    showDescription 
+                    ? <span 
+                        onClick={() => setShowDescription(false)} 
+                        onKeyDown={(e) => handleReadKeydown(e, false)}
+                        tabIndex={0}
+                    >Hide description</span>
+                    : <span 
+                        onClick={() => setShowDescription(true)} 
+                        onKeyDown={(e) => handleReadKeydown(e, true)}
+                        tabIndex={0}
+                    >Read more</span>
                 }
             </div>
             <div className={styles['product-card__price-container']}>

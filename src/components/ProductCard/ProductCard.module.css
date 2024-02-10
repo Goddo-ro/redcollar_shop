@@ -80,6 +80,12 @@
     cursor: pointer;
 }
 
+.product-card__description span:hover,
+.product-card__description span:focus {
+    color: var(--blue-dark);
+    outline: none;
+}
+
 .product-card__price-container {
     display: flex;
     align-items: center;

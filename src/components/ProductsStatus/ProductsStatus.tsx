@@ -24,7 +24,7 @@ const ProductsStatus = () => {
 
     useEffect(() => {
         if (!inView || isLoading || skip > products.length) return;
-        // updateProductsEffect();
+        updateProductsEffect();
     }, [inView]);
 
     useEffect(() => {
