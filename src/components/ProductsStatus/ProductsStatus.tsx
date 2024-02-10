@@ -34,7 +34,7 @@ const ProductsStatus = () => {
     const handleLoadMore = () => {
         updateProductsEffect();
         setIsError(false);
-    }
+    };
 
     const getStatusElement = (): JSX.Element | undefined => {
         if (isLoading) {
@@ -43,7 +43,7 @@ const ProductsStatus = () => {
             return <Button 
                         onClick={handleLoadMore} 
                         buttonType={ButtonType.clear}
-                    >Загрузить еще</Button>
+                    >Загрузить еще</Button>;
         } else if (!products.length) {
             return <span>Ничего не найдено, попробуйте изменить запрос</span>;
         } else if (skip > products.length) {

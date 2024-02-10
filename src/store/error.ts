@@ -1,4 +1,4 @@
-import { createEvent, createStore, sample } from "effector";
+import { createEvent, createStore, sample } from 'effector';
 
 export const $error = createStore<string | undefined>('');
 

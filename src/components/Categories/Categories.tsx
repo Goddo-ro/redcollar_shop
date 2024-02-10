@@ -1,17 +1,11 @@
-import { useEffect, useState } from 'react';
-import { getProductsCategories } from '../../api/ProductsApi';
+import { useUnit } from 'effector-react';
+import { $categories } from '../../store/categories';
 import DraggableList from '../DraggableList/DraggableList';
 import Category from '../Category/Category';
 import styles from './Categories.module.css';
 
 const Categories = () => {
-    const [categories, setCategories] = useState<string[]>([]);
-
-    useEffect(() => {
-        getProductsCategories().then(res => {
-            setCategories([...res.data]);
-        });
-    }, []);
+    const categories = useUnit($categories);
 
     return (
         <DraggableList

@@ -8,6 +8,7 @@ import ProductsStatus from '../../components/ProductsStatus/ProductsStatus';
 
 const Products = () => {
     const [searchParams] = useSearchParams();
+    const categoryParam  = searchParams?.get('category');
 
     const updateCategoryEvent = useUnit(updateCategory);
     const activeCategory = useUnit($activeCategory);
@@ -16,7 +17,7 @@ const Products = () => {
         if (searchParams.get('category') !== activeCategory) {
             updateCategoryEvent(searchParams.get('category'));
         }
-    }, [searchParams?.get('category'), activeCategory]);
+    }, [categoryParam, activeCategory]);
 
     return (
         <main className='products'>

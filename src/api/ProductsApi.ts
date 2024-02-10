@@ -38,5 +38,5 @@ export const getProductsByCategory = async (category: string, limit: number = 10
 };
 
 export const getProductsCategories = async () => {
-    return await $productsInstance.get('products/categories');
+    return await $productsInstance.get<string[]>('products/categories');
 };
