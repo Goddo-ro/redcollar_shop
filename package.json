@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^1.6.7",
     "effector": "^23.2.0",
+    "effector-localstorage": "^1.0.0",
     "effector-react": "^23.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

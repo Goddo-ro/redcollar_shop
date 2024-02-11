@@ -1,11 +1,11 @@
 import { createEvent, createStore, sample } from 'effector';
+import persist from 'effector-localstorage';
 import { Product } from '../types/Product';
 
 type CartListType = {
     [key: number]: { product: Product, count: number }
 };
 
-// TODO: share data between browser pages
 export const $isCartOpen = createStore<boolean>(false);
 export const $cartList = createStore<CartListType>({});
 export const $resultPrice = createStore<number>(0);
@@ -31,7 +31,7 @@ sample({
             cartList[product.id].count++;
         }
 
-        return cartList;
+        return Object.assign({}, cartList);
     },
     target: $cartList,
 });
@@ -67,13 +67,12 @@ sample({
         const cartList = $cartList.getState();
         const result: CartListType = {};
         for (const id of Object.keys(cartList)) {
-
             if (Number.parseInt(id) !== product.id) {
                 result[Number.parseInt(id)] = cartList[Number.parseInt(id)];
             }
         }
 
-        return result;
+        return Object.assign({}, result);
     },
     target: $cartList,
 });
@@ -87,7 +86,7 @@ sample({
             delete cartList[product.id];
         }
 
-        return cartList;
+        return Object.assign({}, cartList);
     },
     target: $cartList,
 });
@@ -112,3 +111,18 @@ sample({
 
 $resultPrice.reset(resetCart);
 $resultCount.reset(resetCart);
+
+persist({
+    store: $cartList,
+    key: 'cartList',
+});
+
+persist({
+    store: $resultPrice,
+    key:'resultPrice',
+});
+
+persist({
+    store: $resultCount,
+    key:'resultCount',
+});
