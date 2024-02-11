@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useUnit } from 'effector-react';
-import { $activeCategory, updateCategory } from '../../store/products';
+import { $activeCategory, updateCategory } from '../../store/categories';
 import ProductsHeader from '../../components/ProductsHeader/ProductsHeader';
 import ProductsGrid from '../../components/ProductsGrid/ProductsGrid';
 import ProductsStatus from '../../components/ProductsStatus/ProductsStatus';

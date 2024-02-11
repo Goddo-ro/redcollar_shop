@@ -2,6 +2,7 @@ import { createEffect, createEvent, createStore, sample } from 'effector';
 import { Product } from '../types/Product';
 import { getAllProducts, getProductsByCategory, getProductsBySearch } from '../api/ProductsApi';
 import { setError } from './error';
+import { $activeCategory } from './categories';
 
 export enum FetchType {
     all,
@@ -10,7 +11,6 @@ export enum FetchType {
 }
 
 export const $typeOfFetching = createStore<FetchType>(FetchType.all);
-export const $activeCategory = createStore<string>('all');
 export const $searchValue = createStore<string>('');
 export const $products = createStore<Product[]>([]);
 export const $limit = createStore<number>(10);
@@ -18,7 +18,6 @@ export const $skip = createStore<number>(0);
 
 export const updateTypeOfFetching = createEvent<FetchType>();
 export const updateSearchValue = createEvent<string>('');
-export const updateCategory = createEvent<string | null>();
 export const updateSkip = createEvent<number>();
 
 export const updateProducts = createEffect(async () => {
@@ -44,12 +43,6 @@ sample({
     clock: updateSearchValue,
     fn: (value) => value,
     target: $searchValue,
-});
-
-sample({
-    clock: updateCategory,
-    fn: (category) => category ? category : 'all',
-    target: $activeCategory,
 });
 
 sample({

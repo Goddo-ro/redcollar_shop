@@ -11,7 +11,7 @@ type SearchControllerProps = {
 const SearchController = ({ setIsOpen }: SearchControllerProps) => {
     const [value, setValue] = useState('');
     
-    const debounceValue = useDebounce(value, 500);
+    const debounceValue = useDebounce(value);
 
     const updateSearchValueEvent = useUnit(updateSearchValue);
 

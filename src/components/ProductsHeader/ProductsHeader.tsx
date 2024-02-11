@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useUnit } from 'effector-react';
-import { $activeCategory, FetchType, updateTypeOfFetching } from '../../store/products';
+import { FetchType, updateTypeOfFetching } from '../../store/products';
+import { $activeCategory } from '../../store/categories';
 import { openCart } from '../../store/cart';
 import Button from '../Button/Button';
 import { ButtonType } from '../Button/ButtonType';

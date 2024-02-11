@@ -35,7 +35,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
         }
     };
 
-    // TODO: make hide btn styles
     return (
         <div className={`${styles['product-card']}`}>
             {

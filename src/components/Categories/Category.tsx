@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useUnit } from 'effector-react';
-import { $activeCategory } from '../../store/products';
+import { $activeCategory } from '../../store/categories';
 import { ButtonType } from '../Button/ButtonType';
 import Button from '../Button/Button';
 import PointIcon from 'src/assets/icons/point.svg';
