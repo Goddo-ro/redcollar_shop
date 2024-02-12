@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useUnit } from 'effector-react';
+import { SkeletonTheme } from 'react-loading-skeleton';
 import { $activeCategory, updateCategory } from '../../store/categories';
 import ProductsHeader from '../../components/ProductsHeader/ProductsHeader';
 import ProductsGrid from '../../components/ProductsGrid/ProductsGrid';
@@ -22,10 +23,12 @@ const Products = () => {
 
     return (
         <main className='products'>
-            <Cart/>
-            <ProductsHeader/>
-            <ProductsGrid/>
-            <ProductsStatus/>
+            <SkeletonTheme baseColor="#DADADA" highlightColor="#BBBBBB">
+                <Cart/>
+                <ProductsHeader/>
+                <ProductsGrid/>
+                <ProductsStatus/>
+            </SkeletonTheme>
         </main>
     );
 };
