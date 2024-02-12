@@ -24,7 +24,7 @@
 }
 
 .product-card__img {
-    height: 288px;
+    aspect-ratio: 1 / 1;
 }
 
 .product-card__dot {

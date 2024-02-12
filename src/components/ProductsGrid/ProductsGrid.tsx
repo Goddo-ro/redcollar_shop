@@ -12,9 +12,10 @@ const ProductsGrid = () => {
     return (
         <div className={styles['products-grid']}>
             {
-                isLoading
-                ? Array.from({ length: 8 }, () => <ProductSkeleton/>)
-                : productsEls
+                productsEls
+            }
+            {
+                isLoading && Array.from({ length: 8 }, () => <ProductSkeleton/>)
             }
         </div>
     );
